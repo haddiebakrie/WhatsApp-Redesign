@@ -1,0 +1,64 @@
+<StoryWithImage>:
+    orientation: 'vertical'
+    size: (dp(60), dp(60))
+    size_hint: None, None
+    spacing: dp(5)
+    width: avatar.width
+    Avatar:
+        id: avatar
+        source: root.source
+        pos_hint: {'center_x': .5}
+    MDLabel:
+        text: root.text
+        size: self.texture_size
+        theme_text_color: 'Custom'
+        size_hint_y: None
+        halign: 'center'
+        font_size: sp(9)
+        color: [1, 1, 1, 1]
+        bold: True
+
+<StoryWithIcon@MDBoxLayout>:
+    orientation: 'vertical'
+    size: (dp(60), dp(60))
+    size_hint: None, None
+    spacing: dp(5)
+    MDIconButton:
+        icon: 'camera-outline'
+        pos_hint: {'center_x': .5}
+        theme_text_color: 'Custom'
+        md_bg_color: app.theme_cls.accent_color
+        text_color: [1, 1, 1, 1]
+        size: (dp(40), dp(40))
+        size_hint: None, None
+        user_font_size: sp(18)
+
+    MDLabel:
+        text: "Add Story"
+        size: self.texture_size
+        theme_text_color: 'Custom'
+        size_hint_y: None
+        halign: 'center'
+        font_size: sp(9)
+        color: [1, 1, 1, 1]
+        bold: True
+
+
+<Avatar@RelativeLayout>:
+    size: (dp(45), dp(45))
+    size_hint: None, None
+    source: root.source
+    MDCard: 
+        size: root.size
+        size_hint: (None, None)
+        radius: [30, 30, 30, 30]
+        md_bg_color: app.theme_cls.accent_color   
+        elevation: 0
+        pos_hint: {'center_x': .5, 'center_y': .5}
+
+    FitImage:
+        size: root.size[0] - dp(3), root.size[1] - dp(3)
+        radius: [30, ]
+        size_hint: None, None
+        source: root.source
+        pos_hint: {"center_x": .5, "center_y": .5}

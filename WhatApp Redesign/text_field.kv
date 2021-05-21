@@ -1,0 +1,44 @@
+<TextField@MDCard>:
+    md_bg_color: [.9, .9, .9, .9]
+    elevation: 0
+    height: dp(40)
+    size_hint_y: None
+    radius: [15, ]
+    padding: [5, 5, 5, 5]
+    MDIconButton:
+        icon: 'emoticon-happy-outline'
+        size_hint_x: None
+        user_font_size: sp(16)
+        size_hint: None, None
+        pos_hint: {'center_y': .5}
+        theme_text_color: "Custom"
+        size: dp(30), dp(30)
+        padding: 0
+    TextInput:
+        id: textInput
+        font_size: sp(12)
+        cursor_color: .5, .5, .5, 1
+        color_mode: "Custom"
+        background_color: 0, 0, 0, 0
+        current_hint_text_color: .5, .5, .5, 1
+        height: 30
+        hint_text: 'Type a Message'
+        padding: [5, ]
+    MDIconButton:
+        icon: 'microphone-outline'
+        size_hint_x: None
+        user_font_size: sp(16)
+        size_hint: None, None
+        pos_hint: {'center_y': .5}
+        theme_text_color: "Custom"
+        size: dp(30), dp(30)
+        padding: 0
+    MDIconButton:
+        icon: 'paperclip'
+        size_hint_x: None
+        user_font_size: sp(16)
+        size_hint: None, None
+        pos_hint: {'center_y': .5}
+        theme_text_color: "Custom"
+        size: dp(30), dp(30)
+        padding: 0
