@@ -1,0 +1,45 @@
+<StoryWithImage>:
+    orientation: 'vertical'
+    size: (60, 80)
+    size_hint: (None, None)
+    spacing: 5
+    width: avatar.width
+    Avatar:
+        id: avatar
+        source: root.source
+        pos_hint: {'center_x':.5}
+    MDLabel: 
+        text: root.text
+        size: self.texture_size
+        theme_text_color: 'Custom'
+        size_hint_y: None
+        # size_hint_x: None
+        halign: 'center'
+        font_size: 9
+        color: [1, 1, 1, 1]
+        bold: True
+
+<StoryWithIcon@MDBoxLayout>:
+    orientation: 'vertical'
+    size: (45, 80)
+    size_hint: (None, None)
+    spacing: 5
+    MDIconButton: 
+        icon: 'camera-outline'
+        theme_text_color: 'Custom'
+        pos_hint: {'center_x': .5}
+        text_color: [1, 1, 1, 1]
+        md_bg_color: app.theme_cls.accent_color
+        user_font_size: 18
+        size: (40, 40)
+        size_hint: (None, None)
+    MDLabel: 
+        text: 'Your Story'
+        size: self.texture_size
+        theme_text_color: 'Custom'
+        size_hint_y: None
+        # size_hint_x: None
+        halign: 'center'
+        font_size: 9
+        color: [1, 1, 1, 1]
+        bold: True

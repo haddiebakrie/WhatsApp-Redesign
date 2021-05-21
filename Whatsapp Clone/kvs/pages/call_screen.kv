@@ -1,0 +1,32 @@
+<CallScreen>:
+    MDBoxLayout: 
+        orientation: "vertical"
+        md_bg_color: app.theme_cls.bg_normal
+        MDToolbar: 
+            id: logoToolBar
+            height: 50
+            title: "Calls"
+            right_action_items: [['invert-colors', lambda x: app.show_theme_picker()]]
+
+
+        ScrollView:
+            do_scroll_y: True
+            bar_width: 0
+            MDBoxLayout:
+                adaptive_height: True
+                # size_hint_y: None
+                orientation: 'vertical'
+                md_bg_color: app.theme_cls.bg_normal
+                CallListItem:
+                    friend_name: 'Lorem Ipsum'
+                    call_date: 'Jan 14, 11:26 PM'
+                    call_type: 'out'
+                    call_mode: 'video'
+                    friend_avatar: 'assets/images/1.jpg'
+                    count: '1'
+                    isMissed: True
+        
+    MDBoxLayout:
+        size_hint_y: None
+        NavBar:
+            three: [1, 1, 1, 1]

@@ -1,0 +1,47 @@
+<NavBar@MDBoxLayout>:
+    orientation: 'vertical'
+    size_hint_y: None
+    padding: [0, 0, 0, 10]
+    one: [1, 1, 1, .5]
+    two: [1, 1, 1, .5]
+    three: [1, 1, 1, .5]
+    four: [1, 1, 1, .5]
+    MDCard:
+        id: navBar
+        radius: [18, ]
+        md_bg_color: app.theme_cls.primary_color
+        padding: [10, 0, 10, 0]
+        size_hint_y: None
+        size_hint_x: None
+        width: 220
+        height: 40
+        pos_hint: {'center_x': .5}
+        
+        NavIcon:
+            text_color: root.one
+            on_press: app.change_screen('message')
+            icon: 'message-minus-outline'
+        NavIcon:
+            text_color: root.two
+            on_press: app.change_screen('group')
+            icon: 'account-group-outline'
+        NavIcon:
+            text_color: root.three
+            on_press: app.change_screen('call')
+            icon: 'phone-in-talk-outline'
+        # NavIcon:
+        #     text_color: root.four
+        #     on_press: app.change_screen('contact')
+        #     icon: 'account-plus-outline'
+
+
+
+<NavIcon@MDIconButton>:
+    pos_hint: {'center_y': .5}
+    theme_text_color: 'Custom'
+    size_hint_x: .1
+    user_font_size: 20
+    size: 45, 45
+
+        
+

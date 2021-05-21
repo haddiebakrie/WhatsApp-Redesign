@@ -1,0 +1,73 @@
+<CallListItem@MDCard>:
+    ripple_behavior: True
+    md_bg_color: 0, 0, 0, 0
+    elevation: 0
+    size_hint_y: None
+    padding: [10, 0, 10, 0]
+    spacing: 10
+    height: chatAvatar.height + 10
+    friend_name: 'Lorem Ipsum'
+    call_date: 'Jan 14, 11:26 PM'
+    call_type: 'out'
+    call_mode: 'video'
+    friend_avatar: 'assets/images/1.jpg'
+    count: '1'
+    isMissed: True
+    Avatar:
+        id: chatAvatar
+        source: root.friend_avatar
+        pos_hint: {"center_y": .5}
+        radius: [30, ]
+    MDBoxLayout:
+        # md_bg_color: 1, 0, 1, 1
+        orientation: "vertical"
+        padding: [0, 0, 0, 10]
+        spacing: 2
+        Label:
+            id: chatUsername
+            text: root.friend_name
+            theme_text_color: 'Custom'
+            size: self.texture_size
+            size_hint_y: None
+            size_hint_x: None
+            font_size: 15
+            color: app.theme_cls.opposite_bg_normal
+            bold: True
+            # 
+        Label:
+            id: callDate
+            text: '({}) {}'.format(root.count, root.call_date)
+            size: self.texture_size
+            theme_text_color: 'Custom'
+            size_hint_y: None
+            size_hint_x: None
+            bold: True
+            font_size: 13
+            color: [.5, .5, .5, 1]
+    BoxLayout:
+        height: call_modeid.height + call_typeid.height
+        size_hint_y: None
+        orientation: 'vertical'
+        width: call_typeid.width
+        size_hint_x: None
+        pos_hint: {'center_y': .5}
+        spacing: 2
+        MDIcon:
+            id: call_modeid
+            theme_style: 'Custom'
+            icon: root.call_mode
+            size_hint: None, None
+            font_size: 18
+            size: 20, 20
+            # pos_hint: {"center_x": .5, 'center_y': .5}
+            color: app.theme_cls.primary_color
+        MDIcon:
+            theme_text_color: 'Custom'
+            id: call_typeid
+            icon: 'arrow-bottom-left'
+            size_hint_y: None
+            size_hint_x: None
+            font_size: 18
+            size: 20, 20
+            # pos_hint: {"center_x": .5, 'center_y': .5}
+            color: [1, 0, 0, 1] if root.isMissed == True else app.primary_color

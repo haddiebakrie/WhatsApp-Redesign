@@ -1,0 +1,40 @@
+<GroupListItem>:
+    ripple_behavior: True
+    md_bg_color: 0, 0, 0, 0
+    elevation: 0
+    size_hint_y: None
+    padding: [10, 0, 10, 0]
+    spacing: 10
+    height: groupAvatar.height + 10
+    Avatar:
+        id: groupAvatar
+        source: root.group_avatar
+        pos_hint: {"center_y": .5}
+        radius: [30, ]
+    MDBoxLayout:
+        # md_bg_color: 1, 0, 1, 1
+        orientation: "vertical"
+        padding: [0, 0, 0, 10]
+        Label:
+            id: groupUsername
+            text: root.group_name
+            theme_text_color: 'Custom'
+            size: self.texture_size
+            # size_hint_y: None
+            size_hint_x: None
+            font_size: 15
+            color: app.theme_cls.opposite_bg_normal
+            bold: True
+        MDLabel:
+            id: lastMessage
+            text: root.friend_mssg
+            height: self.texture_size[1]
+            theme_text_color: 'Custom'
+            size_hint_y: None
+            # size_hint_x: None
+            bold: True
+            font_size: 13
+            color: [.5, .5, .5, 1] if root.isRead != 'new' else app.theme_cls.primary_color
+            shorten: True
+            markup: True
+            shorten_from: 'right'

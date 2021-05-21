@@ -1,0 +1,121 @@
+<ChatScreen>:
+    MDBoxLayout: 
+        orientation: "vertical"
+        md_bg_color: app.theme_cls.bg_normal
+        MDBoxLayout:
+            size_hint_y: None
+            height: 50
+            spacing: 5
+            md_bg_color: app.theme_cls.bg_normal
+            padding: [0, 0, 10, 0]
+            MDIconButton:
+                icon: 'arrow-left'
+                theme_text_color: 'Custom'
+                text_color: app.theme_cls.opposite_bg_normal
+                user_font_size: 18
+                size_hint: (None, None)
+                pos_hint: {'center_y':.5}
+                size: 30, 30
+                padding: 0
+                pos_hint: {'center_y':.5}
+                on_press: app.change_screen('message')
+            MDBoxLayout:
+                size_hint: None, None
+                size: 30, 30
+                orientation: 'vertical'
+                pos_hint: {'center_y': .5}
+                Avatar:
+                    source: root.image
+                    size: 30, 30
+                    size_hint: None, None
+            MDBoxLayout:
+                orientation: "vertical"
+                padding: [0, 10, 0, 10]
+                Label:
+                    text: root.text
+                    size: self.texture_size
+                    size_hint_y: None
+                    size_hint_x: None
+                    font_size: 17
+                    color: app.theme_cls.opposite_bg_normal
+                    bold: True
+                MDBoxLayout:
+                    size_hint_x: None
+                    spacing: 5
+                    MDIcon:
+                        icon: 'circle'
+                        theme_text_color: 'Custom'
+                        color: [0, 1, 0, 1] if root.active == True else [.5, .5, .5, 1]
+                        font_size: 10
+                        size: 10, 10
+                        size_hint: None, None
+                    Label:
+                        text: 'Active' if root.active == True else 'offline'
+                        size: self.texture_size
+                        size_hint_y: None
+                        size_hint_x: None
+                        font_size: 10
+                        color: app.theme_cls.opposite_bg_normal
+
+            MDBoxLayout:
+                size_hint_x: None
+                spacing: 5
+                MDIconButton:
+                    icon: 'video-outline'
+                    theme_text_color: 'Custom'
+                    text_color: app.theme_cls.primary_color
+                    user_font_size: 16
+                    size_hint: (None, None)
+                    pos_hint: {'center_y':.5}
+                    size: 30, 30
+                    padding: 0
+                    md_bg_color: app.theme_cls.bg_darkest if app.theme_cls.theme_style == 'Light' else app.theme_cls.bg_dark
+                MDIconButton:
+                    icon: 'phone-outline'
+                    theme_text_color: 'Custom'
+                    text_color: app.theme_cls.primary_color
+                    user_font_size: 16
+                    size_hint: (None, None)
+                    pos_hint: {'center_y':.5}
+                    size: 30, 30
+                    padding: 0
+                    md_bg_color: app.theme_cls.bg_darkest if app.theme_cls.theme_style == 'Light' else app.theme_cls.bg_dark
+                MDIconButton:
+                    icon: 'dots-vertical'
+                    theme_text_color: 'Custom'
+                    text_color: app.theme_cls.primary_color
+                    user_font_size: 20
+                    size_hint: (None, None)
+                    pos_hint: {'center_y':.5}
+                    size: 30, 30
+                    padding: 0
+                    md_bg_color: app.theme_cls.bg_darkest if app.theme_cls.theme_style == 'Light' else app.theme_cls.bg_dark
+                    
+        ScrollView:
+            MDList:
+                id: msglist
+                spacing: 5
+                padding: [0, 10, 0, 10]
+
+        MDBoxLayout:
+            padding: [10, ]
+            spacing: 5
+            size_hint_y:None
+            height: 40
+            md_bg_color: app.theme_cls.bg_normal
+            TextFieldWithTwoIcon:
+            MDIconButton:
+                size_hint: (None, None)
+                icon: 'send'
+                elevation: 0
+                user_font_size: 16
+                theme_text_color: 'Custom'
+                text_color: [1, 1, 1, 1]
+                md_bg_color: app.theme_cls.accent_color
+                canvas.before:
+                    PushMatrix
+                    Rotate:
+                        angle: 45
+                        origin: self.center
+                        canvas.after:
+                            PopMatrix

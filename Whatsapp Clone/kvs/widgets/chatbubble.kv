@@ -1,0 +1,69 @@
+<ChatBubble>:
+    id: chtbld
+    md_bg_color: [0, 0, 0, 0]
+    size_hint_y: None
+    height: 60
+    adaptive_height: True
+    width: root.width
+    padding: [10, 0, 10, 0]
+    orientation: 'vertical'
+
+    MDBoxLayout:
+        height: msg_content.height + timed.height + 10
+        width: msg_content.width + wid1.width + wid2.width
+        size_hint: None, None
+        pos_hint: {'right': 1} if chtbld.sender == 'you' else {'left': 1}
+        radius: [10, 10, (1, -5), 10] if self.pos_hint == {'right': 1} else [10, 10, 10, (1, -5)]
+        md_bg_color: app.theme_cls.bg_darkest if app.theme_cls.theme_style == 'Light' else app.theme_cls.bg_dark
+        Spacer:
+            id: wid1
+        MDBoxLayout:
+            orientation: 'vertical'
+            height: msg_content.height + tc.height + wid3.height
+            width: msg_content.width
+
+            MDLabel:
+                id: msg_content
+                text: root.msg
+                width: tc.width if self.texture_size[0] < tc.width else self.texture_size[0]
+                height: self.texture_size[1]
+                size_hint_y: None
+                text_size: chtbld.width-30 if self.width >= chtbld.width-30 else None, None
+                halign: 'left'
+                color: app.theme_cls.opposite_bg_normal
+
+            MDBoxLayout:
+                id: tc
+                size_hint_y: None
+                height: timed.height
+                width: timed.width + reciepticon.width + 3
+                spacing: 3
+                MDLabel:
+                    id: timed
+                    text: root.time
+                    size: self.texture_size
+                    size_hint_y: None
+                    font_size: 9
+                    bold: True
+                    halign: 'right'
+                    text_size: None, None
+                    color: [.8, .8, .8, 1]
+                MDIcon:
+                    id: reciepticon
+                    #: set iconds {'read': 'check-all', 'waiting': 'clock-time-three-outline','delivered': 'check'}
+                    theme_text_color: 'Custom'
+                    icon: iconds[chtbld.isRead] if chtbld.isRead in iconds.keys() else ''
+                    size_hint: None, None
+                    font_size: 12
+                    size: (12, 12)
+                    color: timed.color
+            Spacer:
+                id: wid3
+                height: 5
+        Spacer:
+            id: wid2
+
+<Spacer@Widget>:
+    id: wid
+    width: 5
+    size_hint: None, None

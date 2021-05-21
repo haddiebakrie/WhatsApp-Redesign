@@ -1,0 +1,48 @@
+<TextFieldWithTwoIcon@MDCard>:
+    md_bg_color: .9, .9, .9, .9
+    elevation: 0
+    height: 40
+    size_hint_y: None
+    radius: [15, ]
+    padding: [5, 5, 5, 5]
+    hint_text: "Type a message"
+    icon_right: "paperclip"
+    icon_left: "emoticon-happy-outline"
+    icon_righty: "microphone-outline"
+    MDIconButton:
+        icon: root.icon_left
+        size_hint_x: None
+        user_font_size: 16
+        size_hint: (None, None)
+        pos_hint: {'center_y':.5}
+        theme_text_color: 'Custom'
+        size: 30, 30
+        padding: 0
+    TextInput:
+        id: textinput
+        font_size: 12
+        cursor_color: .5, .5, .5, 1
+        line_color_normal: 0, 0, 0, 0
+        line_color_focus: 0, 0, 0, 0
+        color_mode: "custom"
+        current_hint_text_color: .5, .5, .5, 1
+        height: 30
+        background_color: 0, 0, 0, 0
+        hint_text: root.hint_text
+        padding: [5, ]
+    MDIconButton:
+        icon: root.icon_right
+        theme_text_color: 'Custom'
+        size_hint_x: None
+        user_font_size: 16
+        size_hint: (None, None)
+        size: 30, 30
+        padding: 0
+    MDIconButton:
+        icon: root.icon_righty
+        theme_text_color: 'Custom'
+        size_hint_x: None
+        user_font_size: 16
+        size_hint: (None, None)
+        size: 30, 30
+        padding: 0

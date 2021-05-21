@@ -1,0 +1,24 @@
+<GroupScreen>:
+    MDBoxLayout: 
+        orientation: "vertical"
+        md_bg_color: app.theme_cls.bg_normal
+        MDToolbar: 
+            id: logoToolBar
+            height: 50
+            title: "Groups"
+            right_action_items: [['invert-colors', lambda x: app.show_theme_picker()]]
+
+        ScrollView:
+            do_scroll_y: True
+            bar_width: 0
+            MDBoxLayout:
+                adaptive_height: True
+                # size_hint_y: None
+                orientation: 'vertical'
+                md_bg_color: app.theme_cls.bg_normal
+                id: grouplist
+
+    MDBoxLayout:
+        size_hint_y: None
+        NavBar:
+            two: [1, 1, 1, 1]
