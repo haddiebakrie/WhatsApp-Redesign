@@ -1,0 +1,28 @@
+
+<ChatItem>:
+	text:root.username
+	secondary_text:root.message
+	ImageLeftWidget:
+		source:root.source
+		radius:self.width/2
+	RightContainer:
+		size_hint_y:None
+		height:root.height
+		size_hint_x:None
+		width:dp(70)
+		MDIcon:
+			icon:root.check_icon
+			font_size:dp(24)
+			pos_hint:{'center_x':0.5}
+			theme_text_color: "Custom"
+			text_color: "green"
+
+		MDBoxLayout:
+			orientation:'vertical'
+			adaptive_height:True
+			MDLabel:
+				text:root.time
+				font_size:'10dp'
+			MDLabel:
+				text:root.date
+				font_size:'10dp'

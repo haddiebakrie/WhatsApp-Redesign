@@ -1,0 +1,22 @@
+<HomeScreen>:
+	MDTopAppBar:
+		title:'WhatsApp'
+		pos_hint:{'top':1}
+		right_action_items:[['dots-vertical', lambda x:app.callback(x)]]
+	MDBoxLayout:
+		size_hint_y:None
+		height:root.height*0.9
+		MDTabs:
+			tab_hint_x:True
+			on_tab_switch:app.change_tabs(args)
+			ScreenTab:
+				title:'Chats'
+				ChatScreen:
+
+			ScreenTab:
+				title:'Groups'
+				GroupScreen:
+
+			ScreenTab:
+				title:'Status'
+				StatusScreen:
