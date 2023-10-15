@@ -1,0 +1,12 @@
+<ChatScreen>:
+	chat_container:chat_container
+	MDBoxLayout:
+		RecycleView:
+			id:chat_container
+			viewclass:'ChatItem'
+			RecycleBoxLayout:
+				orientation:'vertical'
+				default_size_hint:1, None
+				default_size:None, dp(64)
+				adaptive_height: True
+
