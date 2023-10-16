@@ -1,11 +1,12 @@
 from kivymd.app import MDApp
 from kivymd.uix.floatlayout import MDFloatLayout
-from kivy.properties import ObjectProperty
+from kivy.properties import ObjectProperty, ListProperty
 from kivy.core.window import Window
 from screens.homescreen import HomeScreen
 from screens.viewstatusscreen import ViewStatusScreen
+from screens.messagescreen import MessageScreen
 
-Window.size = (400, 780)
+Window.size = (400, 688)
 Window.top = 0.5
 Window.left = 980
 class WhatsApp(MDFloatLayout):
@@ -13,10 +14,10 @@ class WhatsApp(MDFloatLayout):
 	
 
 class MainApp(MDApp):
+	messages = ListProperty()
 	def build(self):
 		self.theme_cls.primary_palette = 'Teal'
-		self.theme_cls.material_style = 'M3'
-		self.theme_cls.them_style = 'dark'
+		self.theme_cls.theme_style = 'Dark'
 		return WhatsApp()
 	def callback(self, instance):
 		''' display settings options '''

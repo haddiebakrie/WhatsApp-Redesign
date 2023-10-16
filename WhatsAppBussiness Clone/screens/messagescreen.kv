@@ -1,2 +1,101 @@
+#:import RGBA kivy.utils.rgba
+<FocusTextField@MDTextField+FocusBehavior>:
+
 <MessageScreen>:
+	MDRelativeLayout:
+		id:message_bar_layout
+		size_hint_y:None
+		height:dp(64)
+		pos_hint:{'top':1}
+		md_bg_color:app.theme_cls.primary_color
+		MDIconButton:
+			icon:'arrow-left'
+			pos_hint:{'center_x':0.08, 'center_y':0.5}
+			on_release:root.back_btn()
+		FitImage:
+			size_hint:(None, None)
+			size:(dp(60),dp(60))
+			source:root.source
+			radius:self.width/2
+			pos_hint:{'center_x':0.2,'center_y':0.5}
+		MDBoxLayout:
+			size_hint_x:None
+			width:dp(50)
+			size_hint_y:None
+			height:message_bar_layout.height
+			pos_hint:{'center_x':0.35, 'center_y':0.5}
+			orientation:'vertical'
+
+			MDLabel:
+				id:lbl_username
+				text:root.username
+				font_size:dp(12)
+			MDLabel:
+				text:root.time
+				font_size:dp(8)
+		MDIconButton:
+			icon:'dots-vertical'
+			pos_hint:{'center_x':0.9, 'center_y':0.5}
+	MDBoxLayout:
+		size_hint_y:None
+		height:Window.size[1]*0.9
+		pos_hint:{'top':0.9}
+		RecycleView:
+			id:message_rv
+			data:app.messages
+			viewclass:'MessageLabel'
+			RecycleBoxLayout:
+				orientation:'vertical'
+				id:message_box
+	            size_hint_y: None
+	            size: self.minimum_size
+	            default_size_hint: 1, None
+	            # magic value for the default height of the message
+	            default_size: None,50
+	            key_size: '_size'
+	MDBoxLayout:
+		pos_hint:{'bottom':0.8}
+		size_hint_y:None
+		height: dp(50)
+		padding:[dp(12),0, dp(12), 0]
+		MDCard:
+			radius:[dp(8), dp(8), dp(8), dp(8)]
+			md_bg_color:app.theme_cls.bg_darkest
+			MDRelativeLayout:
+				id:input_layout
+				MDIconButton:
+					icon:'face-man'
+					pos_hint:{'center_x':0.04, 'center_y':0.5}
+				FocusTextField:
+					id:message_input
+					hint_text:'message'
+					pos_hint:{'center_x':0.4, 'center_y':0.5}
+					size_hint_x:None
+					width:dp(200)
+					multiline:True
+					on_focus:root.focus_callback()
+					unfocus:root.unfocus_callback()
+					
+				MDIconButton:
+					id:language_btn
+					icon:'globe-light'
+					pos_hint:{'center_x':0.7, 'center_y':0.5}
+				MDIconButton:
+					id:attachment_btn
+					icon:'attachment'
+					pos_hint:{'center_x':0.8, 'center_y':0.5}
+				
+		MDIconButton:
+			id:send_microphone_btn
+			pos_hint:{'center_x':0.9, 'center_y':0.5}
+			icon:'microphone'
+			on_release:root.send_message(message_input)
+		
+
+
+
+
+
+
+
 	

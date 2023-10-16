@@ -3,6 +3,7 @@
 		title:'WhatsApp'
 		pos_hint:{'top':1}
 		right_action_items:[['dots-vertical', lambda x:app.callback(x)]]
+		size_hint_x:1
 	MDBoxLayout:
 		size_hint_y:None
 		height:root.height*0.9
@@ -12,11 +13,14 @@
 			ScreenTab:
 				title:'Chats'
 				ChatScreen:
+					id:chats
 
 			ScreenTab:
 				title:'Groups'
 				GroupScreen:
+					id:groups
 
 			ScreenTab:
 				title:'Status'
 				StatusScreen:
+					id:status
