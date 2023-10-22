@@ -2,14 +2,17 @@ from kivymd.app import MDApp
 from kivymd.uix.floatlayout import MDFloatLayout
 from kivy.properties import ObjectProperty, ListProperty
 from kivy.core.window import Window
+from kivymd.uix.menu import MDDropdownMenu
 from screens.homescreen import HomeScreen
 from screens.viewstatusscreen import ViewStatusScreen
-from kivymd.uix.menu import MDDropdownMenu
 from screens.messagescreen import MessageScreen
+from screens.settingscreen import SettingScreen
 
 Window.size = (400, 688)
-Window.top = 0.5
-Window.left = 980
+#Window.top = 0.5
+#Window.left = 980
+
+Window.custom_titlebar = False
 class WhatsApp(MDFloatLayout):
 	screen_manager = ObjectProperty()
 	
@@ -25,29 +28,37 @@ class MainApp(MDApp):
 		menu_items=[
 				 { "text":f"Advertise",
 				 	"viewclass":"OneLineListItem",
+				 	"divider":None,
 				 	"on_release":lambda x='Advertise':self.menu_callback(x)}, 
 				 {"text":f"Bussiness Tools",
 				 	"viewclass":"OneLineListItem",
+				 	"divider":None,
 				 	"on_release":lambda x='Bussiness Tools':self.menu_callback(x)},
 				 {"text":f"New Group",
 				 	"viewclass":"OneLineListItem",
+				 	"divider":None,
 				 	"on_release":lambda x='New Group':self.menu_callback(x)},
 
 				 {"text":f"New BroadCast",
 				 	"viewclass":"OneLineListItem",
+				 	"divider":None,
 				 	"on_release":lambda x='New BroadCast':self.menu_callback(x)},
 
 				 {"text":f"Labels",
 				 	"viewclass":"OneLineListItem",
+				 	"divider":None,
 				 	"on_release":lambda x='Labels':self.menu_callback(x)},
 				 {"text":f"Linked Devices",
 				 	"viewclass":"OneLineListItem",
+				 	"divider":None,
 				 	"on_release":lambda x='Linked Devices':self.menu_callback(x)},
 				 {"text":f"Starred Message",
 				 	"viewclass":"OneLineListItem",
+				 	"divider":None,
 				 	"on_release":lambda x='Starred Message':self.menu_callback(x)},
 				 {"text":f"Settings",
 				 	"viewclass":"OneLineListItem",
+				 	"divider":None,
 				 	"on_release":lambda x='Settings':self.settings_callback(x)},
 				 ]
 		self.menu = MDDropdownMenu(items=menu_items,
@@ -57,7 +68,8 @@ class MainApp(MDApp):
 		self.menu.caller = instance
 		self.menu.open()
 	def settings_callback(self, value):
-		self.root.screen_manager.current = 'settings'
+		self.menu.dismiss()
+		self.root.screen_manager.current = 'setting'
 
 	def menu_callback(self, instance):
 		print(instance)

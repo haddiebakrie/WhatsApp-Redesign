@@ -23,7 +23,7 @@ class MessageScreen(MDScreen):
 	source = StringProperty('')
 	def __init__(self, **kwargs):
 		super().__init__(**kwargs)
-		self.camera_btn = MDIconButton(icon='camera')
+		self.camera_btn = MDIconButton(icon='camera-outline')
 		Clock.schedule_once(self.custom_init, 1)
 
 	def custom_init(self, *args):

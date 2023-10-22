@@ -1,23 +1,57 @@
-<TwoLineListItem>:
-	text:root.username
-	secondary_text:root.about
-	ImageLeftWidget:
-		source:root.source
-<TwoLineIconListItem>:
+
+	
+
+<TwoLineIconItem>:
+	theme_text_color:'Custom'
+	secondary_theme_text_color:'Custom'
+	text_color:'white' if app.theme_cls.theme_style == 'Dark' else  'black'
+	secondary_text_color:'gray'
 	text:root.action
 	secondary_text:root.description
 	IconLeftWidget:
 		icon:root.icon
+
 <SettingScreen>:
-	MDBoxLayout:
-		orientation:'vertical'
-		TwoLineListItem:
-			source:'assests/images/19.jpg'
-			text:'Liam'
-			secondary_text:'if life is journey where is the destination'
-		TwoLineIconListItem:
-			action:
+	MDTopAppBar:
+		title:'Settings'
+		left_action_items:[['chevron-left', lambda x:root.chevron_back()]]
+		pos_hint:{'top':1}
+	MDScrollView:
+		pos_hint:{'top':0.92}
+		MDBoxLayout:
+			orientation:'vertical'
+			adaptive_height:True
+			TwoLineAvatarIconListItem:
+				text:'Liam'
+				secondary_text:'if life is journey where is the destination'
+				divider:None
+				ImageLeftWidget:
+					source:'assests/images/19.jpg'
+					radius:self.width/2
+			TwoLineIconItem:
+				icon:'briefcase'
+				action:'Business Tools'
+				description:'Profile, Catalog, messaging tools'
+
+			TwoLineIconItem:
+				icon:'account'
+				action:'Account'
+				description:'Security, notification, change number'
+			TwoLineIconItem:
+				icon:'key-variant'
+				action:'Privacy '
+				description:'Block contact disappearing message'
+			TwoLineIconItem:
+				icon:'emoticon-outline'
+				action:'Avatar'
+				description:'Create, edit, profile photo'
+			TwoLineIconItem:
+				icon:'message-bulleted'
+				action:'Chats'
+				description:'Theme wallpaper, chat history'
 
 
 
-		
+
+
+			
