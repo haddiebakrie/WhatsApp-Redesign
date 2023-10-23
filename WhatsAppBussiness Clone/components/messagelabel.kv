@@ -1,0 +1,26 @@
+<MessageLabel>:
+	message_id: -1
+    bg_color: '#223344'
+    side: 'left'
+    text: ''
+    size_hint_y: None
+    _size: 0, 0
+    size: self._size
+    text_size: None, None
+    opacity: min(1, self._size[0])
+
+    MDLabel:
+        text: root.text
+        padding: 10, 10
+        size_hint: None, 1
+        size: self.texture_size
+        text_size: root.text_size
+        
+        pos_hint:
+            (
+            {'x': 0, 'center_y': .5}
+            if root.side == 'left' else
+            {'right': 1, 'center_y': .5}
+            )
+
+        
